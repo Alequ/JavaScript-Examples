@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+//1st thing grab the canvas element
+const canvas = document.querySelector("#draw");
+
+// Grab canvas context(2d)
+const ctx = canvas.getContext("2d");
+
+//size up our window to be fullsize
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+//Base setting of canvas
+ctx.strokeStyle = "#5F5F5F";
+ctx.lineJoin = "round";
+ctx.lineCap = "round";
+ctx.lineWidth = 100;
+
+//set up some variables that will need
+let isDrawing = false; //flag to tell us when we are drawing;
+let lastX = 0;
+let lastY = 0; // position where we stop
+let hue = 0;
+let direction = true;
+
+//create the draw function that will take an event e that will be caled when I move my mouse on the canvas
+// Click and draw functionality.
+
+function draw(e) {
+  if(!isDrawing) return; // stop the function running when the mousebtn is not pressed
+  console.log(e);
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+  ctx.beginPath();
+  //start from
+  ctx.moveTo(lastX, lastY);
+  //go to
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  // when we mouse up, we want to update the starting variables
+  lastX = e.offsetX;
+  lastY = e.offsetY;
+  hue ++; //increment hue each  time so you can change the color
+  if(hue >=360) {
+    hue =0;
+    }
+  if(ctx.lineWidth >= 100 || ctx.lineWidth <=50) {
+    direction = !direction; //if it's greater than 100, or less than 1, flip the direction
+  }
+  if(direction) { //depending if the direction is true or false, we will increment/decrement the line width
+    ctx.lineWidth++;
+  } else {
+    ctx.lineWidth--;
+  }
+
+
+
+
+}
+
+//add eventListener for the function
+canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mousedown", (e) => {
+  isDrawing = true
+  lastX = e.offsetX;
+  lastY = e.offsetY; // as soon as a mouse is clicked, update the variables
+
+}); // When the mouseBtn is pressed, set the is Drawing to true
+canvas.addEventListener("mouseup", () => isDrawing = false); //got the point
+canvas.addEventListener("mouseout", () => isDrawing = false);// ok ok
+</script>
+
+<style>
+  html, body {
+    margin:0;
+  }
+</style>
+
+</body>
+</html>
