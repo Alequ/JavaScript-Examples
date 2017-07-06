@@ -32,27 +32,62 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
-    const fifties = inventors.filter( inventor => (inventor.year >= 1500 && inventor.year < 1600) );
-    console.log(fifties);
+    const fifteen = inventors.filter(function(inventor) {
+      if(inventor.year > 1500 && inventor.year <1600){
+        return inventor;
+      }
+    })
+    console.log(fifteen);
+
+
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
-    const names = inventors.map(inventor => inventor.first + " " + inventor.last);
 
-    console.log(names);
+    const inventore = inventors.map(function(inventor){
+      return inventor.first + " " + inventor.last;
+    })
+    console.log(inventore);
+
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
 
+    const sorted = inventors.sort(function(first, second) {
 
-    const inventorsByAge = inventors.sort((a, b) => a.year > b.year ? 1: -1);
-    console.table(inventorsByAge);
+      if(first.year > second.year){
+        return 1
+      } else {
+        return -1
+      }
+
+    })
+    console.table(sorted);
+
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
 
+    const years = inventors.reduce (function(total, inventors){
+      return total+= (inventors.passed - inventors.year)
+    }, 0)
+    console.log(years);
+
+
 
     // 5. Sort the inventors by years lived
+
+    const longLive = inventors.sort(function(first, second) {
+      const firstInventore = first.passed - first.year;
+      const secondInventore = second.passed - second.year;
+      if(firstInventore > secondInventore){
+        return -1
+      }
+      return 1
+    });
+
+    console.table(longLive);
+
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -61,9 +96,16 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    const sortedAl = people.sort(function(first, second) {
+      const [aFirst, aLast] = first.split(", ");
+      const [bFirst, bLast] = second.split(", ");
+      return aFirst > bFirst ? 1 : -1;
+    })
+    console.log(sortedAl);
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
 
   </script>
 </body>

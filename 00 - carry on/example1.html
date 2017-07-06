@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Adding new elements to the DOM</title>
+</head>
+<body>
+<label for="newNumber">Please enter a number</label>
+<input type="number" id="newNumber" value=0>
+<button onclick="add();">Add to the list</button>
+<br>
+<button onclick="reset();">Reset list</button>
+
+<p>You entered:</p>
+<ul id="numbers"></ul>
+</body>
+<script>
+function add () {
+  //get the input value;
+  let val = document.querySelector("#newNumber").value;
+
+  //if the value it's not undefiend or empty do the folowing:
+
+  if((val !== undefined ) && (val !== "")){
+    let numbers = document.querySelector("#numbers");
+
+
+//create li and set textContetnt to val
+    var newNumber = document.createElement("li");
+    newNumber.textContent = val;
+    //append to ul
+    numbers.append(newNumber);
+  }
+}
+
+function reset() {
+  let list = document.querySelector("#numbers");
+
+  list.innerHTML = "";
+}
+
+</script>
+</html>
