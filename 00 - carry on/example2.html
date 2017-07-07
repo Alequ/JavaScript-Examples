@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <title>JavaScript Challenges</title>
+    <style type="text/css">
+    #emailpara {
+      display: none;
+    }
+     </style>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+
+        <legend>Email subscriptions</legend>
+
+        <p id="Ross">
+          <label>
+            <input type="checkbox" name="subscribe" id="subscribe">
+            Yes! I would like to receive all of your free candy!
+          </label>
+        </p>
+
+        <p id="emailpara">
+          <label>
+            Email Address:
+            <input type="text" name="email" id="email">
+          </label>
+        </p>
+
+      </fieldset>
+
+
+      <fieldset>
+
+          <legend>Billing Information</legend>
+
+          <p>
+            <label>
+              Postal Address:<br>
+              <textarea name="postaladdress" id="postaladdress"></textarea>
+            </label>
+          </p>
+
+          <p>
+          Home Address:<br>
+            <label>
+                 <input type="checkbox" name="homepostalcheck" id="homepostalcheck">
+                 Same as above
+                </label>
+              <br>
+            <textarea name="homeaddress" id="homeaddress"></textarea>
+          </p>
+
+      </fieldset>
+
+    </form>
+
+
+    <form action="mailto:me@fakeemail.com">
+      <fieldset>
+        <legend>Radio buttons and Check Boxes</legend>
+        <p>
+          What's your favourite berry?:
+          <label>
+            <input type="radio" value="male" name="favfruit" id="optstraw">
+            Strawberries
+          </label>
+          <label>
+            <input type="radio" value="female" name="favfruit" id="optblue">
+            Blueberries
+          </label>
+        </p>
+      </fieldset>
+
+      <input type="submit" value="Check it out!">
+    </form>
+    <script>
+
+    /*1. The aim of this challenge is to only display the email paragraph when the checkbox is checked */
+
+    /*
+
+    const checkBox = document.querySelector("input#subscribe");
+    const email = document.querySelector("#emailpara")
+
+    function toggleOpen() {
+      if (checkBox.checked){
+          email.style.display = "inline"
+      } else {
+        email.style.display = "none"
+      }
+
+    }
+
+
+    checkBox.addEventListener("click", toggleOpen);
+ */
+
+
+/*2.The aim of this challenge is to automatically copy the postal address to the home address field if a user checks the "Same as above" checkbox. In addition to this, we'll disable the home address field when the checkbox is checked.    */
+
+const input = document.querySelector("#postaladdress");
+const output = document.querySelector("#homeaddress");
+const checkbox =  document.querySelector("#homepostalcheck");
+
+function update () {
+  if(checkbox.checked){
+    output.value = input.value;
+    output.readOnly = true;
+  } else {
+    output.readOnly = false;
+  }
+}
+
+checkbox.addEventListener("click", update);
+
+
+
+
+    </script>
+  </body>
+</html>
