@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <title>JavaScript Challenges</title>
+    <style type="text/css">
+
+     </style>
+  </head>
+  <body>
+    <h3>Enter a number</h3>
+    <form>
+      <input>
+
+    </input>
+
+  </form>
+    <br />
+    <script>
+
+    /*
+    write code that displays the results of the 12 times table. Its output should be the results of the calculations.
+          12 * 1 = 12 12 * 2 = 24 12 * 3 = 36 . . . 12 * 11 = 132 12 * 12 = 144
+
+    */
+
+    var input = document.querySelector("input")
+
+
+    function displayFunction(e){
+      console.log(input.value)
+      e.preventDefault();
+      for(var i = 1; i<=input.value; i++){
+        document.write(input.value + "*" + i +"=" +input.value * i+ "<br />");
+      }
+    }
+    input.addEventListener("onsubmit", displayFunction);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
