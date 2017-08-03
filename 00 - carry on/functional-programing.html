@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+  const movieList = [
+{
+  title: "Batman",
+  year: 1989,
+  director: "Tim Burton",
+  imdbRating: 7.6
+},
+{
+  title: "Batman Returns",
+  year: 1992,
+  director: "Tim Burton",
+  imdbRating: 7.0
+},
+{
+  title: "Batman Forever",
+  year: 1995,
+  director: "Joel Schumacher",
+  imdbRating: 5.4
+},
+{
+  title: "Batman & Robin",
+  year: 1997,
+  director: "Joel Schumacher",
+  imdbRating: 3.7
+},
+{
+  title: "Batman Begins",
+  year: 2005,
+  director: "Christopher Nolan",
+  imdbRating: 8.3
+},
+{
+  title: "The Dark Knight",
+  year: 2008,
+  director: "Christopher Nolan",
+  imdbRating: 9.0
+},
+{
+  title: "The Dark Knight Rises",
+  year: 2012,
+  director: "Christopher Nolan",
+  imdbRating: 8.5
+}
+];
+
+const moviesBefore2000 = movieList.filter((movie) => {
+  if(movie.year <= 2000){
+    return movie.title;
+  }
+})
+console.log(moviesBefore2000)
+
+
+const governmentForms = [
+  {
+    name: "Plutocracy",
+    definition: "Rule by the wealthy"
+  },
+  {
+    name: "Oligarchy",
+    definition: "Rule by a small number of people"
+  },
+  {
+    name: "Kleptocracy",
+    definition: "Rule by the thieves"
+  },
+  {
+    name: "Theocracy",
+    definition: "Rule by a religious elite"
+  },
+  {
+    name: "Democracy",
+    definition: "Rule by the people"
+  },
+  {
+    name: "Autocracy",
+    definition: "Rule by a single person"
+  }
+];
+
+// TODO: compute the formsEndingWithCy array
+
+const formsEndingWithCy = governmentForms.filter((gov) =>{
+  if(gov.name.slice(-2) == "cy"){
+    return gov.name;
+  }
+})
+
+// Should show ["Plutocracy", "Kleptocracy", "Theocracy", "Democracy", "Autocracy"]
+console.log(formsEndingWithCy);
+
+const arrays = [[1, 4], [11], [3, 5, 7]];
+
+// TODO: compute the value of the arraysSum variable
+
+const arraysSum = arrays.reduce((a, b) => a.concat(b),[]).reduce((a,b) => a+b, 0);
+
+
+console.log(arraysSum); // Should show 31
+
+
+
+
+  </script>
+
+</body>
+</html>

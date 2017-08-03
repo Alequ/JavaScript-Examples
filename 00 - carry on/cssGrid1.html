@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Document</title>
+  <style>
+  .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    grid-auto-rows: 100px;
+  }
+  .container > div {
+    background: #eee;
+    padding: 1em;
+  }
+
+  .container > div:nth-child(odd) {
+    background: #ddd;
+  }
+  .nested{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 70px;
+    grid-gap: 1em;
+    padding: 1em;
+  }
+  .nested > div {
+    border: #333 1px solid;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      Lorem ipsum dolor sit.
+    </div>
+    <div>
+      Lorem ipsum dolor sit.
+    </div>
+    <div>
+      Lorem ipsum dolor sit.
+    </div>
+    <div class="nested">
+      <div>Lorem</div>
+      <div>Lorem</div>
+      <div>Lorem</div>
+
+    </div>
+    <div>
+      Lorem ipsum dolor sit.
+    </div>
+    <div>
+      Lorem ipsum dolor sit.
+    </div>
+  </div>
+
+</body>
+</html>

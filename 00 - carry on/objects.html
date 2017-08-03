@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Objects</title>
+</head>
+<body>
+
+  <script>
+
+  //basic object represented by an rpg character
+    const pleshkas = {
+      name: "Pleshkas",
+      health: 150,
+      strength: 25,
+      class: "Spelsinger",
+      level: 99,
+      clan: "EK",
+      hero: true,
+      // method Object-Oriented Programing
+      describe() {
+        return `${this.name} has ${this.health} health points and ${this.strength} as strength and ${this.xp} XP points`
+      }
+    };
+
+    pleshkas.health -= 20;
+    pleshkas.strength +=10;
+    pleshkas.xp = 15;
+
+    console.log(pleshkas.describe())
+
+    //2....
+
+    const dog = {
+      name: "Bucky",
+      species: "Starfordshire Bull Therier",
+      size: "75 cm",
+      bark () {
+        return "woof";
+      }
+    }
+
+    console.log(`${dog.name} is a ${dog.species} dog measuring ${dog.size}`);
+    console.log(`${dog.name} ${dog.bark()}`)
+
+    //3....
+
+  /*  const radius = Number(prompt("Enter the circle radius:"));
+
+    const circle = {
+      circumference (){
+        return (radius + radius) * Math.PI
+      },
+      areea () {
+        return (radius * radius) * Math.PI
+      }
+    }
+    console.log(`It's circumference is ${circle.circumference()}`)
+    console.log(`It's areea is ${circle.areea()}`)
+    */
+
+
+    //4....
+
+    const account = {
+      name : "Alex",
+      balance: 0,
+      credit (sum) {
+        this.balance += sum
+      },
+      describe () {
+        console.log(`Owner ${account.name}, balance ${account.balance}`)
+      }
+    }
+    account.describe();
+    account.credit(250);
+    account.describe();
+    account.credit(-100);
+    account.describe();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Array</title>
+</head>
+<body>
+  <script>
+  let  musketeers = ["Athos", "Porthos", "Aramis" ]
+  for(let i = 0; i<musketeers.length; i++){
+    console.log(musketeers[i]);
+  }
+  musketeers.push("D'Artagan")
+  musketeers.forEach(musket => {
+    console.log(musket);
+  })
+
+  musketeers.splice(2, 1);
+
+  for(musket of musketeers) {
+    console.log(musket);
+  }
+  console.clear();
+
+  // Sum of Array
+
+  const values = [3,11,7,2,9,10].reduce(function(sum, value) {
+    return sum + value;
+  }, 0)
+
+  console.log(values);
+
+  //maximum Array's value
+
+  const val = [3,11,7,2,9,10]
+
+  max = Math.max.apply(null, val)
+
+  console.log(max);
+
+// Write a program that asks you for a word then shows its length, lowercase, and uppercase values.
+
+  let magicWord = prompt("Pick a word")
+
+
+console.log("Your word has "+ magicWord.length+ " characters");
+console.log(magicWord.toUpperCase());
+console.log(magicWord.toLowerCase())
+
+//Improve the previous program so that it also shows the number of vowels inside the word.
+function vowelCoutn (string){
+  let regexp = /[A,E,I,O]/gi;
+  let matches = string.match(regexp);
+  console.log("Your word has "+matches.length+ " vowel");
+}
+vowelCoutn(magicWord);
+
+//Improve the previous program so that it shows the word written backwards.
+
+let reverseWord = magicWord.split("").reverse().join("");
+console.log(reverseWord);
+
+//Improve the previous program to check if the word is a palindrome. A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+
+if(reverseWord.toLowerCase() == magicWord.toLowerCase()) {
+  console.log(`${magicWord} is a palindrome`)
+} else {
+  console.log(`${magicWord} is not a plindrome`)
+}
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>

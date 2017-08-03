@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My web page</title>
+</head>
+
+<body>
+    <h1>My web page</h1>
+    <p>Hello! My name's Alex.</p>
+    <div>Some text with <a href="#">a link</a>.</div>
+    <p>I live in the dirty city of <a href="https://en.wikipedia.org/wiki/Tecuci">Tecuci</a>.</p>
+
+<script>
+//1.Browse node children using a for loop
+  for(let i = 0; i< document.body.childNodes.length; i++){
+    console.log(document.body.childNodes[i]);
+  }
+//2.Browse node children using forEach
+  document.body.childNodes.forEach(node => {
+    console.log(node);
+  })
+  //3. Browse node children using a for-of loop
+  for(const node of document.body.childNodes){
+    console.log(node)
+  }
+
+  console.clear();
+
+  // Show a DOM object's child node
+// "node" is the DOM object
+// "index" is the index of the child node
+const showChild = (node, index) => {
+  console.error(node.childNodes[index]);
+};
+
+// Should show the h1 node
+showChild(document.body, 1);
+
+// Should show "Incorrect index"
+showChild(document.body, 2);
+
+// Should show "Incorrect index"
+showChild(document.body, 0);
+
+// Should show "Wrong node type"
+showChild(document.body.childNodes[0], 0);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dom2</title>
+</head>
+<body>
+
+  <h1>Mon rêve familier</h1>
+
+<p>Je fais souvent ce rêve <span class="adjective">étrange</span> et <span class="adjective">pénétrant</span></p>
+<p>D'une <span>femme <span class="adjective">inconnue</span></span>, et que j'aime, et qui m'aime</p>
+<p>Et qui n'est, chaque fois, ni tout à fait la même</p>
+<p>Ni tout à fait une autre, et m'aime et me comprend.</p>
+
+<h1>Some musical instruments</h1>
+<ul>
+  <li id="clarinet" class="wind woodwind">
+    The <a href="https://en.wikipedia.org/wiki/Clarinet">clarinet</a>
+  </li>
+  <li id="saxophone" class="wind woodwind">
+    The <a href="https://en.wikipedia.org/wiki/Saxophone">saxophone</a>
+  </li>
+  <li id="trumpet" class="wind brass">
+    The <a href="https://en.wikipedia.org/wiki/Trumpet">trumpet</a>
+  </li>
+  <li id="violin" class="chordophone">
+    The <a href="https://en.wikipedia.org/wiki/Violin">violin</a>
+  </li>
+  <li id="harpsichord">
+  The <a href="https://en.wikipedia.org/wiki/Harpsichord">harpsichord</a>
+</li>
+</ul>
+
+<script>
+
+// TODO: write the countElements() function here
+
+function countElements (elem) {
+  return document.querySelectorAll(elem).length;
+}
+
+console.log(countElements("p"));              // Should show 4
+console.log(countElements(".adjective"));     // Should show 3
+console.log(countElements("p .adjective"));   // Should show 3
+console.log(countElements("p > .adjective")); // Should show 2
+/*
+Write a JavaScript program containing a linkInfo() function that shows:
+
+The total number of links.
+The target of the first and last links.
+This function should work even if no links are present.
+*/
+function linkInfo () {
+  const linksNr = document.getElementsByTagName("a")
+
+  console.log("Number of links "+ linksNr.length);
+  console.log(linksNr[0].href);
+  console.log(linksNr[linksNr.length -1].href)
+}
+linkInfo();
+
+
+</script>
+
+</body>
+</html>

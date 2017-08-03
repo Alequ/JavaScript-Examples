@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Object-oriented-programing</title>
+</head>
+<body>
+
+<script>
+  // constructor
+  class Character {
+    constructor(name, health, strength) {
+      this.name = name;
+      this.health = health;
+      this.strength = strength;
+      this.xp = 0;
+      this.inventory = {
+        gold : 10,
+        keys: 1
+      }
+    }
+    //Attack a target
+    attack(target) {
+      if(this.health > 0) {
+        const damage = this.strength;
+        console.log(`${this.name} attacks ${target.name} and causes ${damage} damage points`);
+        target.health -= damage;
+        if(target.health > 0) {
+          console.log(`${target.name} has ${target.health} health points left`);
+        } else {
+          target.health = 0;
+          const bonusXP = 10;
+          console.log(`${this.name} eliminated ${target.name} and wins ${bonusXP} experience points`)
+          this.xp += bonusXP;
+          this.inventory.gold +=target.inventory.gold
+          this.inventory.keys +=target.inventory.keys
+        }
+      } else {
+        console.log(`${this.name} can't attack`)
+      }
+    }
+
+    //character description
+    describe() {
+      return `${this.name} has ${this.health} health points, ${this.strength} as strength and ${this.xp} XP points, ${this.inventory.gold} gold and ${this.inventory.keys} key(s)`
+    }
+  }
+
+  //create character now
+
+  const pleshkas = new Character("Pleshkas", 150, 25);
+  const moshi = new Character("Moshi", 140, 30);
+  const monster = new Character("Spike", 40, 20);
+
+
+  console.log(pleshkas.describe());
+  console.log(moshi.describe());
+
+
+
+  monster.attack(pleshkas);
+  monster.attack(moshi);
+  pleshkas.attack(monster);
+  moshi.attack(monster);
+
+  console.log(moshi.describe());
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
