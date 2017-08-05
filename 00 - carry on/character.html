@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Game of thrones</title>
+</head>
+<body>
+  <h1>A few of the Game of Thrones characters</h1>
+<form>
+  <label for="house">House</label>:
+  <select name="house" id="house">
+      <option value="" selected>Select a house</option>
+  </select>
+</form>
+
+<p>
+  <ul id="characters"></ul>
+</p>
+
+<script>
+
+window.onload="myFunction()";
+
+const select = document.getElementById("house");
+const list = document.getElementById("characters");
+
+const houses = [
+  {
+    code: "ST",
+    name: "Stark"
+  },
+  {
+    code: "LA",
+    name: "Lannister"
+  },
+  {
+    code: "BA",
+    name: "Baratheon"
+  },
+  {
+    code: "TA",
+    name: "Targaryen"
+  }
+];
+function myFunction () {
+houses.forEach(house => {
+  const opt = document.createElement('option');
+    opt.value = house.code;
+    opt.innerHTML = house.name;
+  select.appendChild(opt);
+})
+}
+myFunction();
+
+// Return an array of characters belonging to a house
+const getCharacters = houseCode => {
+  switch (houseCode) {
+    case "ST":
+      return ["Eddard", "Catelyn", "Robb", "Sansa", "Arya", "Jon Snow"];
+    case "LA":
+      return ["Tywin", "Cersei", "Jaime", "Tyrion"];
+    case "BA":
+      return ["Robert", "Stannis", "Renly"];
+    case "TA":
+      return ["Aerys", "Daenerys", "Viserys"];
+    default:
+      return []; // Empty array
+  }
+};
+function displayNames () {
+  const getNames = getCharacters(this.value);
+  list.innerHTML = ""
+  getNames.forEach(name => {
+    list.innerHTML += `<li>${name}</li>`;
+  })
+
+}
+
+select.addEventListener("change", displayNames);
+
+</script>
+
+</body>
+</html>

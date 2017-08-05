@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event</title>
+</head>
+<body>
+  <button id="myButton">Click me!</button>
+  <p>You clicked on the button <span id="clickCount">0</span> times</p>
+  <button id="deactivate">Désactivate counting</button>
+
+  <br>
+
+  <p>Press the R (red), Y (yellow), G (green) or B (blue) key to change paragraph colors accordingly.</p>
+
+  <h1>Paragraph 1</h1>
+  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim fringilla dapibus. Curabitur placerat efficitur molestie. Quisque quis consequat nibh. Aenean feugiat, eros eget aliquam vulputate, leo augue luctus lectus, non lobortis libero quam non sem. Aliquam sit amet tincidunt ex, mollis interdum massa.</div>
+
+  <h1>Paragraph 2</h1>
+  <div>Vivamus at justo blandit, ornare leo id, vehicula urna. Fusce sed felis eget magna viverra feugiat eget nec orci. Duis non massa nibh. Aenean vehicula velit a magna lobortis tempor ut quis felis. Proin vitae dui a eros facilisis fringilla ut ut ante.</div>
+
+  <h1>Paragraph 3</h1>
+  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet pharetra massa. Nulla blandit erat nulla, et scelerisque libero varius ut. Praesent bibendum eu magna ullamcorper venenatis. Sed ut pellentesque leo. Sed ultrices sapien consequat odio posuere gravida.</div>
+
+
+  <br>
+
+  
+
+
+<script>
+
+//1....Write the JavaScript code that counts the number of clicks on the myButton button by updating the clickCount element. The deactivate button stops the counting.
+const myButton = document.getElementById("myButton")
+const clickCount = document.getElementById("clickCount")
+const reset = document.getElementById("deactivate")
+
+function count() {
+  clickCount.textContent ++;
+}
+function dezactivate() {
+  clickCount.textContent = "0";
+}
+
+myButton.addEventListener("click", count)
+reset.addEventListener("click", dezactivate)
+
+//2.....Write the associated JavaScript code that updates the background color of all div tags according to the key (R, Y, G or B) pressed by the user.
+const divs = document.querySelectorAll("div")
+
+document.addEventListener("keypress", e => {
+  if(String.fromCharCode(e.charCode) === "r") {
+    divs.forEach(div => div.style.backgroundColor = "red");
+  } else if(String.fromCharCode(e.charCode) === "b") {
+    divs.forEach(div => div.style.backgroundColor = "blue");
+  }  else if(String.fromCharCode(e.charCode) === "y") {
+    divs.forEach(div => div.style.backgroundColor = "yellow");
+  }  else if(String.fromCharCode(e.charCode) === "g") {
+    divs.forEach(div => div.style.backgroundColor = "green");
+  }
+
+
+
+</script>
+
+</body>
+</html>

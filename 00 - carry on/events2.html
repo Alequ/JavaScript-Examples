@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>events2</title>
+</head>
+<body>
+
+  <h1>My favourite desserts</h1>
+
+  <ul id="desserts">
+  </ul>
+
+  <button id="addButton">Add a dessert</button>
+
+  <script>
+  //3.....Write the JavaScript code that adds a new dessert to the list when the user clicks on the button. The dessert name is chosen by the user.
+
+
+
+  const addButton = document.getElementById("addButton")
+
+  const list = document.getElementById("desserts")
+
+
+
+
+
+
+  function getValue() {
+
+    const val = prompt("Favourite Desert?")
+
+    list.innerHTML += `
+      <li>
+        ${val}
+      </li>
+    `
+
+  }
+
+  function change () {
+    console.log(this)
+  }
+  addButton.addEventListener("click", getValue)
+
+
+  </script>
+
+</body>
+</html>

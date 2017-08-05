@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>event3</title>
+</head>
+<body>
+  <div id="content"></div>
+
+
+  <script>
+  const questions = [
+  {
+    statement: "2+2?",
+    answer: "2+2 = 4"
+  },
+  {
+    statement: "In which year did Christopher Columbus discover America?",
+    answer: "1492"
+  },
+  {
+    statement:
+      "What occurs twice in a lifetime, but once in every year, twice in a week but never in a day?",
+    answer: "The E letter"
+  }
+];
+
+
+
+  const content = document.getElementById("content");
+
+  questions.forEach(question => {
+
+    content.innerHTML += `
+    <span style="font-weight:bold">Question :</span> ${question.statement}<br>
+    <button id="myButton">Show Answer</button> <br>
+    <span  style="display: none;">${question.answer}</span> <br />
+    `
+
+  })
+  function toggleClass()  {
+       this.style.display = 'none'
+       this.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "initial";
+
+  }
+
+  const myButton = document.querySelectorAll("#myButton")
+
+
+  myButton.forEach(button => button.addEventListener("click", toggleClass, false))
+
+  </script>
+</body>
+</html>
