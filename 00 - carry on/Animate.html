@@ -24,14 +24,39 @@
 </div>
 
   <script>
+  const start = document.getElementById("start")
+  const stop = document.getElementById('id')
+    const ball = document.getElementById("ball");
+    var up = true;
+    var value = 0;
+    var increment = 3;
+    var ceiling = 400;
 
-  const ball = document.getElementById("ball");
-  let count = 0
-setInterval(function bouncing() {
-  
-},1000)
+    function PerformCalc()
+    {
+    if (up == true && value <= ceiling)
+    {
+      value += increment
 
-  ball.style.transform = "translate(0, 300px)"
+      if (value == ceiling)
+      {up = false;}
+    }
+    else
+    {
+        up = false
+        value -= increment;
+
+        if (value == 0)
+        {up = true;}
+    }
+
+       ball.style.transform = `translate(0, ${value}px)`
+    }
+    setInterval(PerformCalc, 10);
+
+
+
+
 
 
 
