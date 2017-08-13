@@ -45,3 +45,15 @@ body {
 .displayNone {
   display:none
 }
+li {
+  margin-bottom: 5px!important;
+  display: block;
+}
+h3{
+  width: 200px;
+  color: blue;
+  margin-right: 3px;
+}
+li * {
+  display:inline;
+}

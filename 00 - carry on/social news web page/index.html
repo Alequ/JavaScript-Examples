@@ -31,29 +31,45 @@
       </div>
     </nav>
 
-  <div class="container-fluid displayNone">
+  <div id="inputContainer" class="container-fluid displayNone ">
     <div class="form-group row ">
 
       <div class="col-md-3 noPadding" >
-       <input type="text" class="form-control" name="watch" value="" placeholder="User Name">
+       <input id="userName" type="text" class="form-control" name="watch" value="" placeholder="User Name">
       </div>
 
       <div class="col-md-4 noPadding" >
-       <input type="text" class="form-control" name="watch" value="" placeholder="Website Name">
+       <input id="websiteName" type="text" class="form-control" name="watch" value="" placeholder="Website Name">
       </div>
 
       <div class="col-md-4 noPadding" >
-       <input type="text" class="form-control" name="watch" value="" placeholder="URL">
+       <input id="url" type="text" class="form-control" name="watch" value="" placeholder="URL">
       </div>
 
 
 
       <div class="col-md-1 noPadding">
-        <span class="btn btn-primary" onclick="update($(this));">Add Link</span>
+        <button id="addLink" class="btn btn-primary" >Add Link</button>
       </div>
     </div>
 
   </div>
+
+  <div class="container-fluid" id="alert">
+
+  </div>
+
+
+<div class="container-fluid noPadding">
+  <ul id="output" class="list-group">
+    <li class="list-group-item"><h3>Twitter</h3> <a href="http://twitter.com" target="blank">http://twitter.com</a><br><span>Submitted by: Alex</span></li>
+    <li class="list-group-item"><h3>Google</h3> <a href="http://google.com" target="blank">http://google.com</a><br><span>Submitted by: Alex</span></li>
+    <li class="list-group-item"><h3>Facebook</h3> <a href="http://facebook.com" target="blank">http://facebook.com</a><br><span>Submitted by: Alex</span></li>
+
+
+  </ul>
+</div>
+
 </div>
 
   <!-- JavaScript code goes into this file -->
