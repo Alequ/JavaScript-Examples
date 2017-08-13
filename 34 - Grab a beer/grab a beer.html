@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img{
+      height:300px;}
+      html {
+        box-sizing: border-box;
+        background-color: #FFAD33;
+        min-height:100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: Futura,"Trebuchet MS",Arial,sans-serif
+      }
+      .wrapper {
+        padding: 20px;
+        max-width: 600px;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
+      }
+
+      #grabButton {
+        cursor:pointer;
+      }
+  </style>
+</head>
+<body>
+
+  <img id="grabButton" src="http://static.tumblr.com/4082946223579974902050538d2ea9d7/io6mgvq/hwwnm6jpm/tumblr_static_6s81k5dqc8sgc0cogkgsw8ogo.png" alt="">
+
+
+  <div class="wrapper" id="beer"></div>
+
+  <script>
+  // Anonymous function for retrieving and displaying a random beer
+    const grabRandomBeer = () => {
+    // Fetching random beer data from API
+    fetch("https://api.punkapi.com/v2/beers/random")
+      .then(response => response.json())
+      .then(beers => {
+
+        // API returns an array containg only one element: we get it
+        const beer = beers[0];
+        console.log(beer);
+
+        // Clear previous beer data
+        const beerElement = document.getElementById("beer");
+        beerElement.innerHTML = "";
+        // Add beer info to the page
+        beerElement.innerHTML = `
+          <h1>${beer.name}</h1>
+          <p>Alcohol by volume:${beer.abv}%. First time brewed: ${beer.first_brewed}</p><br />
+          <p>${beer.description}</p>
+          <img src="${beer.image_url}" alt="" />
+          <p>Goes well with:</p><br />
+          <ul>
+            <li>${beer.food_pairing[0]}</li>
+            <li>${beer.food_pairing[1]}</li>
+            <li>${beer.food_pairing[2]}</li>
+          </ul>
+        `
+
+      })
+      .catch(err => {
+        console.error(err.message);
+      });
+    };
+
+// Grab a new beer when clicking the button
+    document.getElementById("grabButton").addEventListener("click", grabRandomBeer);
+  </script>
+
+</body>
+</html>
