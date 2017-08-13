@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Some famous paintings</h2>
+      <table id="paintings">
+          <tr>
+              <th>Name</th>
+              <th>Year</th>
+              <th>Artist</th>
+          </tr>
+
+      </table>
+
+
+<script>
+const table = document.getElementById("paintings");
+fetch(
+      "https://raw.githubusercontent.com/bpesquet/thejsway/master/resources/paintings.json"
+      )
+      .then(response => response.json()) // Access and return response's text content
+      .then(pictures => {
+        pictures.forEach(picture => {
+          paintings.innerHTML += `
+          <tr>
+            <td>${picture.name}</td>
+            <td>${picture.year}</td>
+            <td>${picture.artist}</td>
+          </tr>
+          `
+        })
+      })
+
+</script>
+</body>
+</html>
