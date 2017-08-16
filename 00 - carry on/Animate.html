@@ -23,18 +23,82 @@
   <img id="ball" src="https://raw.githubusercontent.com/bpesquet/thejsway/master/resources/basketball.jpg">
 </div>
 
-  
+
   <script>
   const start = document.getElementById("start")
-  const stop = document.getElementById('id')
-    const ball = document.getElementById("ball");
-    var up = true;
-    var value = 0;
-    var increment = 3;
-    var ceiling = 400;
+  const stop = document.getElementById('stop')
+  const ball = document.getElementById("ball");
 
-    function PerformCalc()
+
+
+function startAnimation() {
+
+
+  var up = true;
+  var value = 0;
+  var increment = 3;
+  var ceiling = 400;
+
+  if(start.disabled == false) {
+    start.disabled = !false;
+    stop.disabled = !true;
+
+    function PerformCalc() {
+      clearInterval(count)
+
+    if (up == true && value <= ceiling)
     {
+      value += increment
+
+      if (value == ceiling)
+      {up = false;}
+    }
+    else
+    {
+        up = false
+        value -= increment;
+
+        if (value == 0)
+        {up = true;}
+    }
+
+       ball.style.transform = `translate(0, ${value}px)`
+    }
+    const count =  setInterval(PerformCalc, 10);
+
+  } else if( stop.disabled == false){
+
+    start.disabled = !true;
+    stop.disabled = !false;
+    ball.style.transform = "none";
+  }
+
+
+
+}
+
+
+
+
+  start.addEventListener("click", startAnimation)
+    stop.addEventListener("click", startAnimation)
+
+
+
+
+
+
+
+
+
+/*
+
+    function PerformCalc() {
+      var up = true;
+      var value = 0;
+      var increment = 3;
+      var ceiling = 400;
+
     if (up == true && value <= ceiling)
     {
       value += increment
@@ -55,7 +119,7 @@
     }
     setInterval(PerformCalc, 10);
 
-
+*/
 
 
 
