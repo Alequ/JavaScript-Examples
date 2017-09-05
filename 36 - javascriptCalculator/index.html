@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javascript Calculator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+
+<body>
+    <div class="container">
+    <div class="header text-center">
+      <h1>JavaScript Calculator</h1>
+    </div>
+    <div class="calculator">
+      <div class="result">
+        <h3></h3>
+      </div>
+      <div class="btns">
+        <div class="line">
+          <div class="btn btn-danger btn-lg">AC</div>
+          <div class="btn btn-danger btn-lg">CE</div>
+          <div class="btn btn-primary btn-lg">%</div>
+          <div class="btn btn-primary btn-lg">/</div>
+        </div>
+        <div class="line">
+          <div class="btn btn-default btn-lg">7</div>
+          <div class="btn btn-default btn-lg">8</div>
+          <div class="btn btn-default btn-lg">9</div>
+          <div class="btn btn-primary btn-lg">*</div>
+        </div>
+        <div class="line">
+          <div class="btn btn-default btn-lg">4</div>
+          <div class="btn btn-default btn-lg">5</div>
+          <div class="btn btn-default btn-lg">6</div>
+          <div class="btn btn-primary btn-lg">-</div>
+        </div>
+        <div class="line">
+          <div class="btn btn-default btn-lg">1</div>
+          <div class="btn btn-default btn-lg">2</div>
+          <div class="btn btn-default btn-lg">3</div>
+          <div class="btn btn-primary btn-lg">+</div>
+        </div>
+        <div class="line">
+          <div class="btn btn-default btn-lg">0</div>
+          <div class="btn btn-default btn-lg">.</div>
+          <div class="btn btn-primary btn-lg equal">=</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const buttons = document.querySelectorAll(".btn");
+  const result = document.querySelector(".result h3")
+  
+
+  function getValues() {
+
+    if(this.textContent === "="){
+      doMath();
+    } else if(this.textContent == "AC"){
+      result.textContent = "";
+    } else if(this.textContent == "CE") {
+      result.textContent = "";
+    } else {
+    result.innerHTML += this.textContent
+  }
+
+  }
+  function doMath () {
+    result.textContent = eval(result.textContent).toFixed(2).replace(/[.,]00$/, "");
+  }
+
+  buttons.forEach(btn => btn.addEventListener("click", getValues))
+
+  </script>
+
+</body>
+</html>

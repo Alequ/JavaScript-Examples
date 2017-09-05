@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <select name="" id="from">
+    <option value="RON">Romanian Leu</option>
+    <option value="USD">US Dollar</option>
+    <option value="EUR">Euro</option>
+    <option value="AUD">Australian Dollar</option>
+    <option value="BGN">Bulgarian Lev</option>
+    <option value="BRL">Brazilian real</option>
+    <option value="CAD">Canadian dollar</option>
+    <option value="CHF">Swiss franc</option>
+    <option value="CNY">Chinese yuan renminbi</option>
+    <option value="CZK">Czech koruna</option>
+    <option value="DKK">Danish krone</option>
+    <option value="GBP">Pound sterling</option>
+    <option value="HKD">Hong Kong dollar</option>
+    <option value="HRK">Croatian kuna</option>
+    <option value="HUF">Hungarian forint</option>
+    <option value="IDR">Indonesian rupiah</option>
+    <option value="ILS">Israeli shekel</option>
+    <option value="INR">Indian rupee</option>
+    <option value="JPY">Japanese Yen</option>
+    <option value="KRW">South Korean won</option>
+    <option value="MXN">Mexican peso</option>
+    <option value="MYR">Malaysian ringgit</option>
+    <option value="NOK">Norwegian krone</option>
+    <option value="NZD">New Zealand dollar</option>
+    <option value="PHP">Philippine peso</option>
+    <option value="PLN">Polish zloty</option>
+    <option value="RUB">Russian rouble</option>
+    <option value="SEK">Swedish krona</option>
+    <option value="SGD">Singapore dollar</option>
+    <option value="THB">Thai baht</option>
+    <option value="TRY">Turkish lira</option>
+    <option value="ZAR">South African rand</option>
+  </select>
+  <p>to </p>
+  <select name="" id="too">
+    <option value="RON">Romanian Leu</option>
+    <option value="USD">US Dollar</option>
+    <option value="EUR">Euro</option>
+    <option value="AUD">Australian Dollar</option>
+    <option value="BGN">Bulgarian Lev</option>
+    <option value="BRL">Brazilian real</option>
+    <option value="CAD">Canadian dollar</option>
+    <option value="CHF">Swiss franc</option>
+    <option value="CNY">Chinese yuan renminbi</option>
+    <option value="CZK">Czech koruna</option>
+    <option value="DKK">Danish krone</option>
+    <option value="GBP">Pound sterling</option>
+    <option value="HKD">Hong Kong dollar</option>
+    <option value="HRK">Croatian kuna</option>
+    <option value="HUF">Hungarian forint</option>
+    <option value="IDR">Indonesian rupiah</option>
+    <option value="ILS">Israeli shekel</option>
+    <option value="INR">Indian rupee</option>
+    <option value="JPY">Japanese Yen</option>
+    <option value="KRW">South Korean won</option>
+    <option value="MXN">Mexican peso</option>
+    <option value="MYR">Malaysian ringgit</option>
+    <option value="NOK">Norwegian krone</option>
+    <option value="NZD">New Zealand dollar</option>
+    <option value="PHP">Philippine peso</option>
+    <option value="PLN">Polish zloty</option>
+    <option value="RUB">Russian rouble</option>
+    <option value="SEK">Swedish krona</option>
+    <option value="SGD">Singapore dollar</option>
+    <option value="THB">Thai baht</option>
+    <option value="TRY">Turkish lira</option>
+    <option value="ZAR">South African rand</option>
+  </select>
+  <button id="button">Calculate</button>
+  <script>
+
+
+const from = document.getElementById("from")
+const too = document.getElementById("too")
+const button = document.getElementById("button")
+
+
+function getValue() {
+
+    const endpoint = 'https://api.fixer.io/latest?base='+from.value;
+
+    let newData = {}
+    
+    fetch(endpoint)
+          .then(blob => blob.json())
+          .then(data => console.log(data.rates.too.value))
+}
+
+button.addEventListener("click", getValue)
+
+  </script>
+</body>
+</html>
